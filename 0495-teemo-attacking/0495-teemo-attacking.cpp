@@ -5,7 +5,7 @@ public:
         int ans = 0;
         for(const auto& n : timeSeries){
             ans += duration;
-            if(prevEnd >= n ){
+            if(prevEnd >= n){
                 ans -= prevEnd - n + 1;
             }
             prevEnd = n + duration - 1;
