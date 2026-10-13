@@ -13,10 +13,10 @@ public:
         int mid = (len + 1)/2;
         long long ans = 0;
         for(int i = 0; i < mid; i++){
-            ans += pow(nums[i], 2);
+            ans += nums[i] * nums[i];
         }
         for(int i = mid; i < len; i++){
-            ans -= pow(nums[i], 2);
+            ans -= nums[i] * nums[i];
         }
         return ans;
     }
