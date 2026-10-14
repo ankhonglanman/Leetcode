@@ -6,15 +6,14 @@ public:
         }
         string res = "";
         for(int i = 0; i < num; i++){
-            int curDigit;
             if(sum >= 9){
-                curDigit = 9;
+                res.push_back('9');
+                sum -= 9;
             }
             else{
-                curDigit = sum;
+                res.push_back((char)(sum+'0'));
+                sum -= sum;
             }
-            res.push_back((char)(curDigit+'0')); 
-            sum -= curDigit;
         }
         return res;
     }
