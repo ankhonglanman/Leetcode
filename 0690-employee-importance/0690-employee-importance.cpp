@@ -14,7 +14,7 @@ public:
         int res = 0;
         unordered_map<int, Employee*> empMap;
         
-        for(auto& employee : employees){
+        for(const auto& employee : employees){
             empMap[employee->id] = employee;
         }
 
