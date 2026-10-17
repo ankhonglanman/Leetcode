@@ -10,7 +10,7 @@ public:
 
 class Solution {
 public:
-    int getImportance(vector<Employee*> employees, int id) {
+    int getImportance(vector<Employee*> &employees, int id) {
         int res = 0;
         unordered_map<int, Employee*> empMap;
         
