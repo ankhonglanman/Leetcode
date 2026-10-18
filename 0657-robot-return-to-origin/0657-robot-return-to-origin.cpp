@@ -3,8 +3,9 @@ public:
     bool judgeCircle(string moves) {
         int x = 0;
         int y = 0;
-        for(const auto& move : moves){
-            switch(move){
+        int len = moves.size();
+        for(int i = 0; i < len; i++){
+            switch(moves[i]){
                 case 'U': y++;
                 break;
                 case 'D': y--;
