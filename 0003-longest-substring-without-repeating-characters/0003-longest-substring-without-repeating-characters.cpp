@@ -1,29 +1,32 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        
-        int len = s.length();
-        int l = 0;
-        int maxLen = 0;
-        std::unordered_map<char, int> map;  
+        unordered_set<char> set;
+        int left = 0;
+        int size = s.size();
+        int max = 0;
 
-        for(int r = 0; r < len; r++){
-            if(map.count(s[r]) == 0){
-                map.insert({s[r], r});
+        for(int right = 0; right < size; right++){
+            
+            if(!set.contains(s[right])){
+                set.insert(s[right]);
             }
             else{
-                if(map[s[r]] >= l){
-
-                    l = map[s[r]] + 1;
+                while(s[left] != s[right]){
+                    set.erase(s[left]);
+                    left++;
                 }
-                map[s[r]] = r;
+                left++;
             }
-            if(r - l + 1 > maxLen){
-                maxLen = r - l + 1;
+
+            int curLen = right - left + 1;
+
+            if (curLen > max){
+                max = curLen;
             }
+
         }
 
-        return maxLen;
-    
+        return max;
     }
 };
