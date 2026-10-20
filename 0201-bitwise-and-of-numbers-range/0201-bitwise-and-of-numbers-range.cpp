@@ -6,9 +6,14 @@ public:
         }
         int res = 0;
 
-        for(int i = 30; i >= 0 && ((left >> i)&1) == ((right >> i)&1); i--){
-            if((left >> i)&1 == 1){
-                res ^= 1<<i;
+        for(int i = 30; i >= 0; i--){
+            int t1 = (left >> i)&1; 
+            int t2 = (right >> i)&1;
+            if(t1 == t2){
+                if(t1 == 1) res ^= 1<<i;
+            }
+            else{
+                break;
             }
         }
 
