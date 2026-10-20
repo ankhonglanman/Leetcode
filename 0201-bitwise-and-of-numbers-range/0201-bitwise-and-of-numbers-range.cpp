@@ -9,14 +9,9 @@ public:
         for(; right >> numberOfBits == 0; numberOfBits--);
         numberOfBits++;
 
-        for(int i = numberOfBits - 1; i >= 0; i--){
-            int t1 = left >> i;
-            int t2 = right >> i;
-            if((t1&1) == 1 && (t2&1) == 1){
+        for(int i = numberOfBits - 1; i >= 0 && ((left >> i)&1) == ((right >> i)&1); i--){
+            if((left >> i)&1 == 1){
                 res ^= 1<<i;
-            }
-            else if((t1&1) != (t2&1)){
-                break;
             }
         }
 
