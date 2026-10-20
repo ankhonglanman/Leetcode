@@ -17,11 +17,9 @@ public:
             shift--;
             
             if(cur->val){
-                cout << "shift: " << shift << endl;
                 res ^= 1<<(shift);
             }
         }
-        //cout << ((res>>shift)& << endl;
         return (res>>shift);
     }
 };
