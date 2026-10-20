@@ -10,10 +10,12 @@ public:
         numberOfBits++;
 
         for(int i = numberOfBits - 1; i >= 0; i--){
-            if(((left >> i)&1) == 1 && ((right >> i)&1) == 1){
+            int t1 = left >> i;
+            int t2 = right >> i;
+            if((t1&1) == 1 && (t2&1) == 1){
                 res ^= 1<<i;
             }
-            else if(((left >> i)&1) != ((right >> i)&1)){
+            else if((t1&1) != (t2&1)){
                 break;
             }
         }
