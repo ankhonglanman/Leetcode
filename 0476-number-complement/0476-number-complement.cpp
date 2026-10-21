@@ -5,7 +5,6 @@ public:
         for(; MSB >= 1;MSB--){
             if((num>>MSB)&1) break;
         }
-        int numBits = MSB + 1;
-        return (INT_MAX>>(31 - numBits)^num);
+        return (INT_MAX>>(31 - (MSB+1))^num);
     }
 };
