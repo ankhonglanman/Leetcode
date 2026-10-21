@@ -11,10 +11,7 @@
 class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
-        if(head == nullptr){
-            return nullptr;
-        }
-        else if(head->next == nullptr){
+        if(head == nullptr || head->next == nullptr){
             return head;
         }
 
