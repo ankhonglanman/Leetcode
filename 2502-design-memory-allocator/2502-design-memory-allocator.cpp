@@ -4,7 +4,6 @@ private:
     int remainingUnits;
     bool *isEmpty;
     unordered_map<int, vector<int>> blockManager; // key : mID & val : memory units's assigned to mID index
-    void *memoryPool;
 public:
     Allocator(int n) {
         maxSize = n;
@@ -13,7 +12,6 @@ public:
         for(int i = 0; i < n; i++){
             isEmpty[i] = 1;
         }
-        memoryPool = malloc(n);
     }
     
     int allocate(int size, int mID) {
