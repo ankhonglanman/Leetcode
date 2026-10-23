@@ -19,12 +19,10 @@ public:
             }
         }
         string res(s.size(), '0');
-        cout << digits.size() << chars.size() << endl;
         if(abs((int)digits.size() - (int)chars.size()) > 1){
             return "";
         }
         else{
-            cout << "hehe" << endl; 
             int i = 0;
             if(digits.size() > chars.size()){
                 int x = 0;
