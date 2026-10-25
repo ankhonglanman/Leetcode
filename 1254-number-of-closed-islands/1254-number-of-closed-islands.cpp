@@ -13,10 +13,12 @@ public:
 
         int numClosedIsland = 0;
 
+        queue<struct coor> to_visit;
+
         for(int i = 0; i < numRow; i++){
             for(int j = 0; j < numCol; j++){
                 if(grid[i][j] == 0){
-                    queue<struct coor> to_visit;
+                    
                     to_visit.push({i, j});
                     bool isClosed = 1; 
                     
