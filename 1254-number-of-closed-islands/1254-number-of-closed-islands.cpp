@@ -29,9 +29,9 @@ public:
                         }
                         grid[curCoor.x][curCoor.y] = 1;
 
-                        for(int i = 0; i < 4; i++){ 
-                            int cellX = curCoor.x + dx[i]; 
-                            int cellY = curCoor.y + dy[i];
+                        for(int z = 0; z < 4; z++){ 
+                            int cellX = curCoor.x + dx[z]; 
+                            int cellY = curCoor.y + dy[z];
                             if(cellX >= 0 && cellX < numRow && cellY >= 0 && cellY < numCol){
                                 int &cell = grid[cellX][cellY];
                                 if(cell == 0){
