@@ -1,21 +1,24 @@
 class Solution {
 public:
     bool judgeCircle(string moves) {
+        int len = moves.size();
+
         int x = 0;
         int y = 0;
-        int len = moves.size();
-        for(int i = 0; i < len; i++){
-            switch(moves[i]){
+
+        for(const auto& move : moves){
+            switch(move){
                 case 'U': y++;
                 break;
                 case 'D': y--;
                 break;
-                case 'L': x--;
-                break;
                 case 'R': x++;
+                break;
+                case 'L': x--;
                 break;
             }
         }
-        return (x == 0 && y == 0);
+
+        return x == 0 && y == 0;
     }
 };
