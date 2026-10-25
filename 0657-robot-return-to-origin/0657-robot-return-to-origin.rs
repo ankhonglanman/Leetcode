@@ -6,13 +6,14 @@ impl Solution {
         let mut y: i32 = 0;
 
         for i in 0..moves.len() {
-            if moves.chars().nth(i) == Some('U') {
+            let c: char = moves.as_bytes()[i] as char;
+            if c == 'U' {
                 y += 1;
             }
-            else if moves.chars().nth(i) == Some('D') {
+            else if c == 'D' {
                 y -= 1;
             }
-            else if moves.chars().nth(i) == Some('R') {
+            else if c == 'R' {
                 x += 1;
             }
             else {
