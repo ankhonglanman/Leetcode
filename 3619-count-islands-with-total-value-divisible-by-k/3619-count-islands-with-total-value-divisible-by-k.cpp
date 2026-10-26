@@ -5,8 +5,8 @@ private:
         int j;
     };
 
-    int di[4] = {1, -1, 0, 0};
-    int dj[4] = {0, 0, 1, -1};
+    const int di[4] = {1, -1, 0, 0};
+    const int dj[4] = {0, 0, 1, -1};
 
     long long bfs(int i, int j, vector<vector<int>>& grid, queue<struct coor>& to_visit){
         long long total = grid[i][j];
@@ -17,12 +17,9 @@ private:
             struct coor curCell = to_visit.front();
             to_visit.pop();
 
-            int i = curCell.i;
-            int j = curCell.j;
-
             for(int d = 0; d < 4; d++){
-                int i_here = i + di[d];
-                int j_here = j + dj[d];
+                int i_here = curCell.i + di[d];
+                int j_here = curCell.j + dj[d];
 
                 if(i_here >= grid.size() || i_here < 0 || j_here >= grid[0].size() || j_here < 0) continue;
 
@@ -40,6 +37,7 @@ public:
     int countIslands(vector<vector<int>>& grid, int k) {
         int numRow = grid.size();
         int numCol = grid[0].size();
+        
         queue<struct coor> to_visit;
         int res = 0;
 
