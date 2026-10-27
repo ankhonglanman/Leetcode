@@ -3,6 +3,10 @@ public:
     vector<string> createGrid(int m, int n) {
         vector<string> res(m, "");
 
+        for (auto& string : res) {
+            string.reserve(n);   
+        }
+
         for(int i = 0; i < m; i++){
             for(int j = 0; j < n; j++){
                 if(i == 0 || j == n - 1){
