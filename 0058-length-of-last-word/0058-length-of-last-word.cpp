@@ -9,28 +9,29 @@ public:
     int lengthOfLastWord(string s) {
         state_t state = INIT;
         int len = s.size();
+        int res = 0;
         for(int i = len - 1; i >= 0; i--){
             switch(state){
                 case INIT:
                 {
                     if((s[i] <= 'Z' && s[i] >= 'A') || (s[i] <= 'z' && s[i] >= 'a')){
                         state = COUNTING;
-                        len = 1;
+                        res = 1;
                     }
                     break;
                 }
                 case COUNTING:
                 {
                     if(s[i] == ' ') state = DONE;
-                    else len++;
+                    else res++;
                     break;
                 }
-                case DONE: return len;
+                case DONE: return res;
                 break;
             }
 
         }
 
-        return len;
+        return res;
     }
 };
