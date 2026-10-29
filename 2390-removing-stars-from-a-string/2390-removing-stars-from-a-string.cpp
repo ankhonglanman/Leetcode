@@ -6,6 +6,7 @@ private:
 public:
     string removeStars(string s) {
         string seen = "";
+        seen.reserve(s.size());
         for(const auto& ch : s){
             if(isLetter(ch)){
                 seen.push_back(ch);
