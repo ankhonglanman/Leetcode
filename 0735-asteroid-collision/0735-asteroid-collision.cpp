@@ -1,44 +1,39 @@
 class Solution {
+private:
+    bool isCollide(int first, int second){
+        if(first * second > 0) return false;
+        else{
+            if(first > 0 && second < 0){
+                return true;
+            }
+            else return false;
+        }
+    }
 public:
     vector<int> asteroidCollision(vector<int>& asteroids) {
-        vector<int> stack; 
-        for(const auto& asteroid : asteroids){
-            if(stack.empty()){
-                stack.push_back(asteroid);
+        vector<int> after;
+        for (const auto& as : asteroids) {
+            if (after.empty() || as > 0) {
+                after.push_back(as);
             }
-            else{
-                if(asteroid > 0){
-                        stack.push_back(asteroid);
+            else {
+                while (!after.empty() && after.back() > 0 && abs(as) > after.back()) {
+                    after.pop_back();
                 }
-                else if(-asteroid == stack.back()){
-                    stack.pop_back();
+                if (after.empty() || after.back() < 0) {
+                    after.push_back(as); 
                 }
-                else{
-                    if((asteroid < 0 && stack.back() < 0)){
-                        stack.push_back(asteroid);
+                else {
+                    if (abs(as) < after.back()) {
+                        /// do nothing
                     }
-                    else{
-                        while(!stack.empty() && stack.back() > 0 && -asteroid >= stack.back()){
-                            int skip = 0;
-                            if(-asteroid == stack.back()){
-                                skip = 1;
-                            }
-                            stack.pop_back();
-                            if(skip){
-                                goto end_loop;
-                            }
-                            if(!stack.empty() && stack.back() < 0){
-                                stack.push_back(asteroid);
-                            }
-                        }
-                        if(stack.empty()){
-                            stack.push_back(asteroid);
-                        }
-                        end_loop:
+                    else {
+                        after.pop_back();
                     }
                 }
             }
         }
-        return stack;
+
+        return after;
     }
 };
