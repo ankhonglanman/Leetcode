@@ -12,6 +12,8 @@ private:
 public:
     vector<int> asteroidCollision(vector<int>& asteroids) {
         vector<int> after;
+        after.reserve(asteroids.size());
+        
         for (const auto& as : asteroids) {
             if (after.empty() || as > 0) {
                 after.push_back(as);
